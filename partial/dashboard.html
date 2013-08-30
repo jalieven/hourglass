@@ -1,0 +1,51 @@
+<div id="dashboard">
+    <div id="hourglasses" class="well" data-ng-repeat="hourglass in hourglasses | orderBy: 'tag':true" data-ng-animate="'slide'">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
+                    <p>
+                        <a data-ng-click="measure(hourglass._id.$oid)">{{hourglass.tag}}</a>
+                    </p>
+                </div>
+                <div class="span6">
+                    <p data-ng-hide="!hourglass.description">
+                        <strong>{{hourglass.description}}</strong>
+                    </p>
+                </div>
+                <div class="span3">
+                    <p>
+                        <a data-ng-href="/#/hourglass/{{hourglass._id.$oid}}" class="btn-info btn-small">Edit</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard-output">
+        <form id="day-interval-form" class="form-horizontal well">
+            <div class="control-group">
+                <label class="control-label">Start day</label>
+                <div class="controls">
+                    <date-time-picker data-ng-model="filterMeasure.start"></date-time-picker>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">End day</label>
+                <div class="controls">
+                    <date-time-picker data-ng-model="filterMeasure.end"></date-time-picker>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="span6">
+                <anim-pie-chart width="370" height="370" margin="5" band="110"
+                                data="{{pieData}}" ease="elastic" duration="900"></anim-pie-chart>
+            </div>
+            <div class="span6">
+                <select data-ng-model="filterMeasure.tag" data-ng-options="hourglass.tag for hourglass in hourglasses"></select>
+                <anim-bar-chart width="500" height="300"
+                                data="{{dayBarData}}" ease="elastic" duration="900"></anim-bar-chart>
+            </div>
+        </div>
+    </div>
+</div>
