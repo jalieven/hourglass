@@ -74,3 +74,4 @@ Time tracking:
 31/08/2013 7u20 -> 8u00 : Functional design
 31/08/2013 11u00 -> 12u00 : Domain design
 31/08/2013 12u00 -> 12u30 : Project setup
+04/09/2013 13u45 -> 16u00 : Project setup fixes

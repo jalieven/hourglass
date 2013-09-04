@@ -3,7 +3,9 @@ var hourglass = angular.module('hourglass', ['ngRoute', 'ngAnimate', 'hourglassS
 var controllers = {};
 
 controllers.DashBoardController = function ($scope) {
-
+    $scope.filterMeasure = {};
+    $scope.filterMeasure.start = moment().format("YYYY/MM/DD HH:mm:ss");
+    $scope.filterMeasure.end = moment().format("YYYY/MM/DD HH:mm:ss");
 };
 
 controllers.EditController = function ($scope) {
